@@ -3,11 +3,6 @@
 use DeliciousBrains\WP_Offload_Media\Aws3\Aws as Aws;
 
 
-class Ding extends S3_Uploads_Stream_Wrapper
-{
-
-
-}
 
 class S3_Uploads {
 

@@ -1,10 +1,11 @@
 <?php
 
-use Aws\S3\S3ClientInterface;
-use Aws\CacheInterface;
+use DeliciousBrains\WP_Offload_Media\Aws3\Aws as Aws;
+use DeliciousBrains\WP_Offload_Media\Aws3\Aws\S3\S3ClientInterface as S3ClientInterface;
+use DeliciousBrains\WP_Offload_Media\Aws3\Aws\CacheInterface as CacheInterface;
 use DeliciousBrains\WP_Offload_Media\Aws3\Aws\LruArrayCache as LruArrayCache;
-use Aws\Result;
-use Aws\S3\Exception\S3Exception;
+use DeliciousBrains\WP_Offload_Media\Aws3\Aws\Result as Result;
+use DeliciousBrains\WP_Offload_Media\Aws3\Aws\S3\Exception\S3Exception as S3Exception;
 use DeliciousBrains\WP_Offload_Media\Aws3\GuzzleHttp\Psr7 as Psr7;
 use DeliciousBrains\WP_Offload_Media\Aws3\GuzzleHttp\Psr7\Stream as Stream;
 use DeliciousBrains\WP_Offload_Media\Aws3\GuzzleHttp\Psr7\CachingStream as CachingStream;
