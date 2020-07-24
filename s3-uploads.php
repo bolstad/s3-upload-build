@@ -8,11 +8,6 @@ Version: 3.0.0-beta
 Author URI: https://hmn.md
 */
 
-require_once __DIR__ . '/wp-offload-media-autoloader.php';
-$abspath = dirname( __FILE__ );
-require_once __DIR__ . '/vendor/Aws3/aws-autoloader.php';
-
-new WP_Offload_Media_Autoloader2( 'WP_Offload_Media', $abspath );
 
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -24,14 +19,13 @@ add_action( 'plugins_loaded', 's3_uploads_init' );
 function s3_uploads_init() {
 	// Ensure the AWS SDK can be loaded.
 
+    require_once __DIR__ . '/wp-offload-media-autoloader.php';
+    $abspath = dirname( __FILE__ );
+    require_once __DIR__ . '/vendor/Aws3/aws-autoloader.php';
+    new WP_Offload_Media_Autoloader2( 'WP_Offload_Media', $abspath );
 
 
-    if ( ! class_exists( '\\Aws\\S3\\S3Client' ) ) {
-		// Require AWS Autoloader file.
-	#	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
-	}
-
-	if ( ! s3_uploads_check_requirements() ) {
+    if ( ! s3_uploads_check_requirements() ) {
 		return;
 	}
 
