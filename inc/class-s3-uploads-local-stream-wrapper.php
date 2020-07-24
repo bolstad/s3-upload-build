@@ -1,5 +1,8 @@
 <?php
 
+use DeliciousBrains\WP_Offload_Media\Aws3\Aws as Aws;
+
+
 /**
  * Local streamwrapper that writes files to the upload dir
  *

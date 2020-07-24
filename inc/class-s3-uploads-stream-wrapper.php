@@ -505,7 +505,7 @@ class S3_Uploads_Stream_Wrapper
 
 		// Filter our "/" keys added by the console as directories, and ensure
 		// that if a filter function is provided that it passes the filter.
-		$this->objectIterator = \Aws\flatmap(
+		$this->objectIterator = Aws\flatmap(
 			$this->getClient()->getPaginator('ListObjects', $op),
 			function (Result $result) use ($filterFn) {
 				$contentsAndPrefixes = $result->search('[Contents[], CommonPrefixes[]][]');

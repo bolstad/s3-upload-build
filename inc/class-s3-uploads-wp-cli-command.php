@@ -1,6 +1,9 @@
 <?php
 
-use Aws\S3\Transfer;
+use DeliciousBrains\WP_Offload_Media\Aws3\Aws\S3\Transfer as Transfer;
+
+#use Aws\S3\Transfer;
+
 
 class S3_Uploads_WP_CLI_Command extends WP_CLI_Command {
 

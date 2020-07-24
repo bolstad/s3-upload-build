@@ -117,6 +117,7 @@ class S3_Uploads {
 			}
 		}
 
+		#error_log(print_r($dirs,1));
 		return $dirs;
 	}
 
