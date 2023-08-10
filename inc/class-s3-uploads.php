@@ -302,8 +302,9 @@ class S3_Uploads {
 	 */
 	public function filter_sideload_move_temp_file_to_s3( array $file ) {
 		$upload_dir = wp_upload_dir();
-		$new_path   = $upload_dir['basedir'] . '/tmp/' . basename( $file['tmp_name'] );
-
+#		$new_path   = $upload_dir['basedir'] . '/tmp/' . basename( $file['tmp_name'] );
+#		avoid roundtrip to s3 for temp handling 		
+                $new_path = tempnam(sys_get_temp_dir(), time() . basename( $file['tmp_name'] ));
 		copy( $file['tmp_name'], $new_path );
 		unlink( $file['tmp_name'] );
 		$file['tmp_name'] = $new_path;
